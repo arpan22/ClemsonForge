@@ -1,0 +1,181 @@
+lot_name: synthetic_lot_04_70pct
+description: Auto-generated configuration for synthetic_lot_04_70pct.jpg
+image_width: 1200
+image_height: 800
+detection: {confidence_threshold: 0.25, iou_threshold: 0.3, model: yolov8m.pt}
+slots:
+- id: A1
+  polygon:
+  - [90, 80]
+  - [245, 80]
+  - [245, 215]
+  - [90, 215]
+  type: regular
+- id: A2
+  polygon:
+  - [260, 80]
+  - [415, 80]
+  - [415, 215]
+  - [260, 215]
+  type: regular
+- id: A3
+  polygon:
+  - [430, 80]
+  - [585, 80]
+  - [585, 215]
+  - [430, 215]
+  type: regular
+- id: A4
+  polygon:
+  - [600, 80]
+  - [755, 80]
+  - [755, 215]
+  - [600, 215]
+  type: regular
+- id: A5
+  polygon:
+  - [770, 80]
+  - [925, 80]
+  - [925, 215]
+  - [770, 215]
+  type: regular
+- id: A6
+  polygon:
+  - [940, 80]
+  - [1095, 80]
+  - [1095, 215]
+  - [940, 215]
+  type: regular
+- id: B1
+  polygon:
+  - [90, 240]
+  - [245, 240]
+  - [245, 375]
+  - [90, 375]
+  type: regular
+- id: B2
+  polygon:
+  - [260, 240]
+  - [415, 240]
+  - [415, 375]
+  - [260, 375]
+  type: regular
+- id: B3
+  polygon:
+  - [430, 240]
+  - [585, 240]
+  - [585, 375]
+  - [430, 375]
+  type: regular
+- id: B4
+  polygon:
+  - [600, 240]
+  - [755, 240]
+  - [755, 375]
+  - [600, 375]
+  type: regular
+- id: B5
+  polygon:
+  - [770, 240]
+  - [925, 240]
+  - [925, 375]
+  - [770, 375]
+  type: regular
+- id: B6
+  polygon:
+  - [940, 240]
+  - [1095, 240]
+  - [1095, 375]
+  - [940, 375]
+  type: regular
+- id: C1
+  polygon:
+  - [90, 400]
+  - [245, 400]
+  - [245, 535]
+  - [90, 535]
+  type: regular
+- id: C2
+  polygon:
+  - [260, 400]
+  - [415, 400]
+  - [415, 535]
+  - [260, 535]
+  type: regular
+- id: C3
+  polygon:
+  - [430, 400]
+  - [585, 400]
+  - [585, 535]
+  - [430, 535]
+  type: regular
+- id: C4
+  polygon:
+  - [600, 400]
+  - [755, 400]
+  - [755, 535]
+  - [600, 535]
+  type: regular
+- id: C5
+  polygon:
+  - [770, 400]
+  - [925, 400]
+  - [925, 535]
+  - [770, 535]
+  type: regular
+- id: C6
+  polygon:
+  - [940, 400]
+  - [1095, 400]
+  - [1095, 535]
+  - [940, 535]
+  type: regular
+- id: D1
+  polygon:
+  - [90, 560]
+  - [245, 560]
+  - [245, 695]
+  - [90, 695]
+  type: regular
+- id: D2
+  polygon:
+  - [260, 560]
+  - [415, 560]
+  - [415, 695]
+  - [260, 695]
+  type: regular
+- id: D3
+  polygon:
+  - [430, 560]
+  - [585, 560]
+  - [585, 695]
+  - [430, 695]
+  type: regular
+- id: D4
+  polygon:
+  - [600, 560]
+  - [755, 560]
+  - [755, 695]
+  - [600, 695]
+  type: regular
+- id: D5
+  polygon:
+  - [770, 560]
+  - [925, 560]
+  - [925, 695]
+  - [770, 695]
+  type: regular
+- id: D6
+  polygon:
+  - [940, 560]
+  - [1095, 560]
+  - [1095, 695]
+  - [940, 695]
+  type: regular
+visualization:
+  empty_color: [0, 255, 0]
+  occupied_color: [0, 0, 255]
+  unknown_color: [128, 128, 128]
+  slot_alpha: 0.4
+  border_thickness: 2
+  font_scale: 0.5

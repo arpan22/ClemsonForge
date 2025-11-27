@@ -1,0 +1,139 @@
+lot_name: synthetic_lot_03_50pct
+description: Precision-calibrated configuration for synthetic_lot_03_50pct.jpg
+image_width: 1200
+image_height: 800
+detection: {confidence_threshold: 0.25, iou_threshold: 0.3, model: yolov8m.pt}
+slots:
+- id: A1
+  polygon:
+  - [89, 53]
+  - [231, 53]
+  - [231, 229]
+  - [89, 229]
+  type: regular
+- id: A2
+  polygon:
+  - [249, 53]
+  - [391, 53]
+  - [391, 229]
+  - [249, 229]
+  type: regular
+- id: A3
+  polygon:
+  - [409, 53]
+  - [551, 53]
+  - [551, 229]
+  - [409, 229]
+  type: regular
+- id: A4
+  polygon:
+  - [569, 53]
+  - [711, 53]
+  - [711, 229]
+  - [569, 229]
+  type: regular
+- id: A5
+  polygon:
+  - [729, 53]
+  - [871, 53]
+  - [871, 229]
+  - [729, 229]
+  type: regular
+- id: A6
+  polygon:
+  - [889, 53]
+  - [1031, 53]
+  - [1031, 229]
+  - [889, 229]
+  type: regular
+- id: B1
+  polygon:
+  - [89, 250]
+  - [231, 250]
+  - [231, 426]
+  - [89, 426]
+  type: regular
+- id: B2
+  polygon:
+  - [249, 250]
+  - [391, 250]
+  - [391, 426]
+  - [249, 426]
+  type: regular
+- id: B3
+  polygon:
+  - [409, 250]
+  - [551, 250]
+  - [551, 426]
+  - [409, 426]
+  type: regular
+- id: B4
+  polygon:
+  - [569, 250]
+  - [711, 250]
+  - [711, 426]
+  - [569, 426]
+  type: regular
+- id: B5
+  polygon:
+  - [729, 250]
+  - [871, 250]
+  - [871, 426]
+  - [729, 426]
+  type: regular
+- id: B6
+  polygon:
+  - [889, 250]
+  - [1031, 250]
+  - [1031, 426]
+  - [889, 426]
+  type: regular
+- id: C1
+  polygon:
+  - [89, 447]
+  - [231, 447]
+  - [231, 623]
+  - [89, 623]
+  type: regular
+- id: C2
+  polygon:
+  - [249, 447]
+  - [391, 447]
+  - [391, 623]
+  - [249, 623]
+  type: regular
+- id: C3
+  polygon:
+  - [409, 447]
+  - [551, 447]
+  - [551, 623]
+  - [409, 623]
+  type: regular
+- id: C4
+  polygon:
+  - [569, 447]
+  - [711, 447]
+  - [711, 623]
+  - [569, 623]
+  type: regular
+- id: C5
+  polygon:
+  - [729, 447]
+  - [871, 447]
+  - [871, 623]
+  - [729, 623]
+  type: regular
+- id: C6
+  polygon:
+  - [889, 447]
+  - [1031, 447]
+  - [1031, 623]
+  - [889, 623]
+  type: regular
+visualization:
+  empty_color: [0, 255, 0]
+  occupied_color: [0, 0, 255]
+  unknown_color: [128, 128, 128]
+  slot_alpha: 0.4
+  border_thickness: 2
+  font_scale: 0.5

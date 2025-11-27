@@ -1,0 +1,98 @@
+# Parking Lot Configuration
+# Define the layout of parking spots for your lot
+# Each slot is defined by its polygon coordinates (pixel coordinates)
+
+lot_name: "Clemson University - Demo Lot"
+description: "Sample parking lot configuration for MVP demo"
+
+# Image dimensions (update to match your images)
+image_width: 1920
+image_height: 1080
+
+# Detection settings
+detection:
+  confidence_threshold: 0.25  # Minimum confidence for car detection
+  iou_threshold: 0.3          # Minimum IoU to consider a slot occupied
+  model: "yolov8m.pt"         # Model to use (or path to fine-tuned model)
+
+# Parking slots definition
+# Each slot has:
+#   - id: Unique identifier (e.g., "A1", "B2")
+#   - polygon: List of [x, y] coordinates defining the slot boundary
+#   - type: Optional slot type (regular, handicap, compact, etc.)
+#
+# Polygon coordinates are in pixels, relative to image top-left (0,0)
+# Define vertices clockwise or counter-clockwise
+
+slots:
+  # Row A - Top row
+  - id: "A1"
+    polygon: [[100, 100], [180, 100], [180, 200], [100, 200]]
+    type: "regular"
+  
+  - id: "A2"
+    polygon: [[190, 100], [270, 100], [270, 200], [190, 200]]
+    type: "regular"
+  
+  - id: "A3"
+    polygon: [[280, 100], [360, 100], [360, 200], [280, 200]]
+    type: "regular"
+  
+  - id: "A4"
+    polygon: [[370, 100], [450, 100], [450, 200], [370, 200]]
+    type: "regular"
+  
+  - id: "A5"
+    polygon: [[460, 100], [540, 100], [540, 200], [460, 200]]
+    type: "regular"
+  
+  # Row B - Second row
+  - id: "B1"
+    polygon: [[100, 220], [180, 220], [180, 320], [100, 320]]
+    type: "regular"
+  
+  - id: "B2"
+    polygon: [[190, 220], [270, 220], [270, 320], [190, 320]]
+    type: "regular"
+  
+  - id: "B3"
+    polygon: [[280, 220], [360, 220], [360, 320], [280, 320]]
+    type: "handicap"
+  
+  - id: "B4"
+    polygon: [[370, 220], [450, 220], [450, 320], [370, 320]]
+    type: "regular"
+  
+  - id: "B5"
+    polygon: [[460, 220], [540, 220], [540, 320], [460, 320]]
+    type: "regular"
+  
+  # Row C - Third row
+  - id: "C1"
+    polygon: [[100, 340], [180, 340], [180, 440], [100, 440]]
+    type: "regular"
+  
+  - id: "C2"
+    polygon: [[190, 340], [270, 340], [270, 440], [190, 440]]
+    type: "regular"
+  
+  - id: "C3"
+    polygon: [[280, 340], [360, 340], [360, 440], [280, 440]]
+    type: "regular"
+  
+  - id: "C4"
+    polygon: [[370, 340], [450, 340], [450, 440], [370, 440]]
+    type: "compact"
+  
+  - id: "C5"
+    polygon: [[460, 340], [540, 340], [540, 440], [460, 440]]
+    type: "compact"
+
+# Visual settings for the map display
+visualization:
+  empty_color: [0, 255, 0]      # Green (BGR)
+  occupied_color: [0, 0, 255]   # Red (BGR)
+  unknown_color: [128, 128, 128] # Gray (BGR)
+  slot_alpha: 0.4               # Transparency for slot overlay
+  border_thickness: 2           # Slot border thickness
+  font_scale: 0.5               # Label font size

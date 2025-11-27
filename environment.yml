@@ -1,0 +1,43 @@
+# Smart Parking Detection System - Conda Environment
+# Create: conda env create -f environment.yml
+# Activate: conda activate parking-mvp
+
+name: parking-mvp
+channels:
+  - pytorch
+  - conda-forge
+  - defaults
+
+dependencies:
+  - python=3.10.12
+  - pip=23.3
+  
+  # PyTorch (CPU version - change for GPU)
+  - pytorch=2.1.0
+  - torchvision=0.16.0
+  - torchaudio=2.1.0
+  - cpuonly  # Remove this line and add cudatoolkit for GPU
+  
+  # Core packages
+  - numpy=1.26.4
+  - pandas=2.2.0
+  - scipy=1.12.0
+  - matplotlib=3.8.3
+  - seaborn=0.13.2
+  - pillow=10.2.0
+  - pyyaml=6.0.1
+  - tqdm=4.66.2
+  - requests=2.31.0
+  
+  # Pip-only packages
+  - pip:
+    - ultralytics==8.2.0
+    - streamlit==1.32.0
+    - opencv-python==4.9.0.80
+    - shapely==2.0.3
+    - python-dotenv==1.0.1
+
+# For GPU support, replace cpuonly with:
+# - pytorch-cuda=11.8
+# Or install PyTorch separately:
+# conda install pytorch torchvision torchaudio pytorch-cuda=11.8 -c pytorch -c nvidia

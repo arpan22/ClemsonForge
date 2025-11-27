@@ -1,0 +1,40 @@
+# YOLOv8 Training Configuration for Clemson Parking Dataset
+# Usage: python scripts/train_parking_model.py --data configs/clemson_parking.yaml
+
+# Dataset paths (relative to script location or absolute)
+path: ../datasets/clemson_parking  # Dataset root directory
+train: images/train                 # Train images (relative to 'path')
+val: images/val                     # Validation images (relative to 'path')
+test:                               # Test images (optional)
+
+# Number of classes
+nc: 1  # We only detect cars
+
+# Class names
+names:
+  0: car
+
+# Training notes:
+# - Annotate cars from top-down view using bounding boxes
+# - Use YOLO format: class_id x_center y_center width height (normalized 0-1)
+# - Save .txt files in labels/train/ and labels/val/ with same names as images
+# - Example annotation for a car:
+#   0 0.5 0.5 0.15 0.25
+#   (class 0, center at 50% x/y, width 15%, height 25% of image)
+
+# Recommended augmentation settings for parking lot images:
+# These are applied automatically by Ultralytics but can be customized:
+# 
+# augment:
+#   hsv_h: 0.015     # HSV-Hue augmentation (fraction)
+#   hsv_s: 0.7       # HSV-Saturation augmentation
+#   hsv_v: 0.4       # HSV-Value augmentation  
+#   degrees: 0.0     # Rotation (±degrees) - keep low for parking lots
+#   translate: 0.1   # Translation (±fraction)
+#   scale: 0.5       # Scale (±gain)
+#   shear: 0.0       # Shear (±degrees)
+#   perspective: 0.0 # Perspective (±fraction)
+#   flipud: 0.0      # Flip up-down (probability) - usually not useful for parking
+#   fliplr: 0.5      # Flip left-right (probability)
+#   mosaic: 1.0      # Mosaic augmentation (probability)
+#   mixup: 0.0       # MixUp augmentation (probability)

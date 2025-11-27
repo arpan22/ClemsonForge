@@ -1,0 +1,5 @@
+# Model weights directory
+Place your YOLOv8 model weights here.
+
+The app will download pretrained weights automatically if not present.
+For fine-tuned models, copy your `best.pt` here.

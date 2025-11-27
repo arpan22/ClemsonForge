@@ -1,0 +1,139 @@
+lot_name: synthetic_lot_05_90pct
+description: Precision configuration for synthetic_lot_05_90pct.jpg (auto-analyzed)
+image_width: 1200
+image_height: 800
+detection: {confidence_threshold: 0.25, iou_threshold: 0.3, model: yolov8m.pt}
+slots:
+- id: A1
+  polygon:
+  - [138, 102]
+  - [138, 102]
+  - [138, 286]
+  - [138, 286]
+  type: regular
+- id: A2
+  polygon:
+  - [138, 102]
+  - [138, 102]
+  - [138, 286]
+  - [138, 286]
+  type: regular
+- id: A3
+  polygon:
+  - [138, 102]
+  - [138, 102]
+  - [138, 286]
+  - [138, 286]
+  type: regular
+- id: A4
+  polygon:
+  - [138, 102]
+  - [138, 102]
+  - [138, 286]
+  - [138, 286]
+  type: regular
+- id: A5
+  polygon:
+  - [138, 102]
+  - [138, 102]
+  - [138, 286]
+  - [138, 286]
+  type: regular
+- id: A6
+  polygon:
+  - [138, 102]
+  - [138, 102]
+  - [138, 286]
+  - [138, 286]
+  type: regular
+- id: B1
+  polygon:
+  - [138, 301]
+  - [138, 301]
+  - [138, 485]
+  - [138, 485]
+  type: regular
+- id: B2
+  polygon:
+  - [138, 301]
+  - [138, 301]
+  - [138, 485]
+  - [138, 485]
+  type: regular
+- id: B3
+  polygon:
+  - [138, 301]
+  - [138, 301]
+  - [138, 485]
+  - [138, 485]
+  type: regular
+- id: B4
+  polygon:
+  - [138, 301]
+  - [138, 301]
+  - [138, 485]
+  - [138, 485]
+  type: regular
+- id: B5
+  polygon:
+  - [138, 301]
+  - [138, 301]
+  - [138, 485]
+  - [138, 485]
+  type: regular
+- id: B6
+  polygon:
+  - [138, 301]
+  - [138, 301]
+  - [138, 485]
+  - [138, 485]
+  type: regular
+- id: C1
+  polygon:
+  - [138, 500]
+  - [138, 500]
+  - [138, 684]
+  - [138, 684]
+  type: regular
+- id: C2
+  polygon:
+  - [138, 500]
+  - [138, 500]
+  - [138, 684]
+  - [138, 684]
+  type: regular
+- id: C3
+  polygon:
+  - [138, 500]
+  - [138, 500]
+  - [138, 684]
+  - [138, 684]
+  type: regular
+- id: C4
+  polygon:
+  - [138, 500]
+  - [138, 500]
+  - [138, 684]
+  - [138, 684]
+  type: regular
+- id: C5
+  polygon:
+  - [138, 500]
+  - [138, 500]
+  - [138, 684]
+  - [138, 684]
+  type: regular
+- id: C6
+  polygon:
+  - [138, 500]
+  - [138, 500]
+  - [138, 684]
+  - [138, 684]
+  type: regular
+visualization:
+  empty_color: [0, 255, 0]
+  occupied_color: [0, 0, 255]
+  unknown_color: [128, 128, 128]
+  slot_alpha: 0.4
+  border_thickness: 2
+  font_scale: 0.5

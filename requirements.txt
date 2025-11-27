@@ -1,0 +1,50 @@
+# Smart Parking Detection System - Requirements
+# Python 3.10.x recommended (tested with 3.10.12)
+# Install: pip install -r requirements.txt
+
+# Core ML Framework
+torch==2.1.0
+torchvision==0.16.0
+torchaudio==2.1.0
+
+# YOLOv8 - Object Detection (Local inference)
+ultralytics==8.2.0
+
+# Roboflow - Cloud API Detection (Alternative to local YOLOv8)
+# Minimal: just requests (already included below)
+# Full SDK (optional, more efficient):
+inference-sdk==0.9.21
+
+# Web Interface
+streamlit==1.32.0
+
+# Image Processing
+opencv-python==4.9.0.80
+Pillow==10.2.0
+
+# Data Processing
+numpy==1.26.4
+pandas==2.2.0
+scipy==1.12.0
+
+# Configuration
+PyYAML==6.0.1
+
+# HTTP Requests (for Roboflow API)
+requests==2.31.0
+
+# Visualization
+matplotlib==3.8.3
+seaborn==0.13.2
+
+# Utilities
+tqdm==4.66.2
+python-dotenv==1.0.1
+
+# Geometry operations (for polygon IoU)
+shapely==2.0.3
+
+# Optional: GPU support (uncomment if using CUDA)
+# Install PyTorch with CUDA from: https://pytorch.org/get-started/locally/
+# Example for CUDA 11.8:
+# pip install torch==2.1.0+cu118 torchvision==0.16.0+cu118 --index-url https://download.pytorch.org/whl/cu118
