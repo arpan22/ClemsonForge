@@ -33,7 +33,6 @@ import yaml
 from utils.detector import Detection
 from utils.slot_matcher import SlotMatcher, SlotStatus, create_grid_slots
 from utils.visualization import ParkingVisualizer
-from utils.auto_slot_detector import AutoSlotDetector
 
 
 # Try to import both detector backends
@@ -221,8 +220,20 @@ def main():
 
     if use_manual_grid:
         st.sidebar.markdown("**Grid Parameters:**")
-        manual_rows = st.sidebar.slider("Rows", 2, 10, 3)
-        manual_cols = st.sidebar.slider("Columns", 2, 15, 6)
+        manual_rows = st.sidebar.slider("Rows", 2, 10, 2, help="Number of parking rows")
+        manual_cols = st.sidebar.slider("Columns", 2, 20, 10, help="Number of parking columns")
+
+        st.sidebar.markdown("**Fine-Tune Position:**")
+        with st.sidebar.expander("Advanced Adjustment"):
+            offset_x = st.slider("Horizontal Offset (%)", -10, 10, 0, help="Shift grid left/right")
+            offset_y = st.slider("Vertical Offset (%)", -10, 10, 0, help="Shift grid up/down")
+            coverage_x = st.slider("Horizontal Coverage (%)", 70, 100, 95, help="Grid width")
+            coverage_y = st.slider("Vertical Coverage (%)", 70, 100, 92, help="Grid height")
+    else:
+        # Default values when not in manual mode
+        manual_rows, manual_cols = 2, 10
+        offset_x, offset_y = 0, 0
+        coverage_x, coverage_y = 95, 92
     
     # Display options
     st.sidebar.subheader("Display Options")
@@ -311,8 +322,9 @@ def main():
                     # AUTO-DETECT MODE: Analyze image and create slots automatically
                     st.info("🤖 Auto-detecting parking slots from your image...")
 
-                    auto_detector = AutoSlotDetector()
-                    detected_slots, grid_params = auto_detector.detect_slots(image_bgr, force_grid=False)
+                    from utils.simple_grid_detector import SimpleGridDetector
+                    grid_detector = SimpleGridDetector()
+                    detected_slots, grid_params = grid_detector.create_grid(image_bgr)
 
                     st.success(f"✅ Auto-detected {len(detected_slots)} parking slots!")
                     with st.expander("ℹ️ Auto-Detection Details"):
@@ -326,21 +338,38 @@ def main():
 
                     # Convert to slot matcher format
                     matcher = SlotMatcher(iou_threshold=iou_threshold)
-                    slot_dicts = auto_detector.slots_to_dict_list(detected_slots)
-                    matcher.set_slots_from_list(slot_dicts)
+                    matcher.set_slots_from_list(detected_slots)
 
                 elif use_manual_grid:
-                    # Manual grid mode
+                    # Manual grid mode - cover full image with adjustments
                     matcher = SlotMatcher(iou_threshold=iou_threshold)
+
+                    # Calculate to cover most of the image with user adjustments
+                    img_h, img_w = image_np.shape[:2]
+                    parking_width = img_w * (coverage_x / 100)
+                    parking_height = img_h * (coverage_y / 100)
+
+                    # Calculate slot size to fill the area
+                    slot_w = int((parking_width * 0.92) / manual_cols)
+                    slot_h = int((parking_height * 0.92) / manual_rows)
+                    h_gap = int((parking_width * 0.08) / (manual_cols + 1))
+                    v_gap = int((parking_height * 0.08) / (manual_rows + 1))
+
+                    # Apply offset adjustments
+                    base_start_x = int((img_w - parking_width) / 2 + h_gap)
+                    base_start_y = int((img_h - parking_height) / 2 + v_gap)
+                    adjusted_start_x = base_start_x + int(img_w * (offset_x / 100))
+                    adjusted_start_y = base_start_y + int(img_h * (offset_y / 100))
+
                     manual_slots = create_grid_slots(
-                        start_x=int(image_np.shape[1] * 0.05),
-                        start_y=int(image_np.shape[0] * 0.1),
-                        slot_width=int(image_np.shape[1] * 0.12),
-                        slot_height=int(image_np.shape[0] * 0.18),
+                        start_x=adjusted_start_x,
+                        start_y=adjusted_start_y,
+                        slot_width=slot_w,
+                        slot_height=slot_h,
                         rows=manual_rows,
                         cols=manual_cols,
-                        h_spacing=int(image_np.shape[1] * 0.02),
-                        v_spacing=int(image_np.shape[0] * 0.03)
+                        h_spacing=h_gap,
+                        v_spacing=v_gap
                     )
                     matcher.set_slots_from_list(manual_slots)
                     st.info(f"🎛️ Using manual grid: {manual_rows}×{manual_cols} = {len(manual_slots)} slots")
