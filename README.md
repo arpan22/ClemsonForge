@@ -62,7 +62,7 @@ cd smart-parking-mvp
 pip install -r requirements-roboflow.txt
 
 # Set API key (already configured with demo key)
-export ROBOFLOW_API_KEY="i6ssN6FE5PzINBYzJxHN"
+export ROBOFLOW_API_KEY="YOUR_API_KEY"
 
 # Run demo app
 streamlit run app/streamlit_app.py
